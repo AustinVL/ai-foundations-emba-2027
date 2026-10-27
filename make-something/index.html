@@ -118,7 +118,7 @@
     </div>
     <div class="deal js-only">
       <button class="btn btn--red" type="button" data-deal>Deal</button>
-      <span class="quiet" data-deal-note>Three formats, two prompts each: six combinations. Five names leaves one unused.</span>
+      <span class="quiet" data-deal-note>Three formats, two prompts each: six combinations, dealt at random. Five names leaves one unused.</span>
     </div>
     <table class="dealt" data-dealt hidden><thead><tr><th scope="col">Name</th><th scope="col">Format</th><th scope="col">Prompt</th></tr></thead><tbody></tbody></table>
     <p class="quiet" style="margin-top:14px">If the Deal button does nothing, count off 1 to 6 and take that number on the next step. Nobody chooses.</p>
@@ -491,8 +491,11 @@ Can you produce an interactive web page to teach me about this?</p>
   function deal() {
     var ns = names();
     if (ns.length < 2) { alert("Type at least two names first."); return; }
-    var order = shuffle(COMBOS.slice());
-    var out = ns.map(function (name, i) { return { name: name, combo: i < 6 ? order[i] : order[Math.floor(Math.random() * 6)] }; });
+    var people = shuffle(ns.slice());                                   /* the names are shuffled, not just the slots */
+    var slots = shuffle(COMBOS.slice()).slice(0, Math.min(people.length, 6))
+      .sort(function (a, b) { return COMBOS.indexOf(a) - COMBOS.indexOf(b); });   /* five names: a random combination sits out */
+    while (slots.length < people.length) slots.push(COMBOS[Math.floor(Math.random() * 6)]);   /* seven or more: one twice */
+    var out = people.map(function (name, i) { return { name: name, combo: slots[i] }; });   /* rows read in the 1 to 6 order of the next step */
     try { localStorage.setItem(KEY, JSON.stringify(out.map(function (d) { return { name: d.name, combo: d.combo[0] }; }))); } catch (e) {}
     render(out);
   }
