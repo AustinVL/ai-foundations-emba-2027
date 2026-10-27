@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Make something · AI Foundations</title>
-<meta name="description" content="The exercise of AI Foundations, MIT Sloan Executive MBA, October 27, 2026: make something. Three shapes, two briefs. Seven steps.">
+<meta name="description" content="The exercise of AI Foundations, MIT Sloan Executive MBA, October 27, 2026: make something. Three formats, two prompts. Seven steps.">
 <meta name="robots" content="noindex">
 <link rel="stylesheet" href="../assets/guide.css">
 <link rel="icon" href="../assets/favicon.ico" sizes="any">
@@ -14,11 +14,12 @@
   .names .field { margin: 0; }
   .names input { font-size: 16px; }
   .deal { margin: 18px 0 0; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
-  .dealt { list-style: none; margin: 18px 0 0; padding: 0; }
-  .dealt li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--hair); font-size: 16px; }
-  .dealt li:first-child { border-top: 1px solid var(--hair); }
-  .dealt .t { font-family: var(--mono); font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--red); white-space: nowrap; }
-  .dealt .t small { display: block; color: var(--silver); letter-spacing: .04em; text-transform: none; font-size: 12px; }
+  .dealt { width: 100%; border-collapse: collapse; margin: 18px 0 0; font-size: 16px; }
+  .dealt th, .dealt td { text-align: left; padding: 10px 16px 10px 0; border-bottom: 1px solid var(--hair); vertical-align: top; }
+  .dealt th { font-family: var(--mono); font-weight: 400; font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--silver); border-top: 1px solid var(--hair); }
+  .dealt td.f, .dealt td.p { font-family: var(--mono); font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--red); white-space: nowrap; }
+  .dealt td:last-child, .dealt th:last-child { padding-right: 0; }
+  .about input[type="text"] { margin-top: 8px; }
   .team__picks { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .brief .field { margin-top: 16px; }
   .brief .prompt { margin-top: 24px; }
@@ -69,10 +70,10 @@
   </div>
   <div class="step__body">
     <p class="step__lede">Everyone in the room asks Claude for one thing on the same topic. What comes back depends
-      on the shape you were given, and on what you told it about yourself. First, the settings.</p>
+      on the format you were given, and on what you told it about yourself. First, the settings.</p>
 
     <p class="settings"><span class="label">Model settings for this exercise</span>
-      <b>Claude Enterprise</b> · <b>Opus 5</b> · <b>effort: Medium</b></p>
+      <b>Claude Enterprise</b> · <b>Opus 5</b> · <b>effort: Low</b></p>
     <p>If something does not work, ask someone next to you first, then raise your hand.</p>
 
     <h2 class="sec">Check</h2>
@@ -82,7 +83,7 @@
       <li><label class="check"><input type="checkbox" data-check="e1-chat"><span class="check__box"></span>
         <span class="check__t">A new chat is open</span></label></li>
       <li><label class="check"><input type="checkbox" data-check="e1-model"><span class="check__box"></span>
-        <span class="check__t">The model is Opus 5, effort Medium</span></label></li>
+        <span class="check__t">The model is Opus 5, effort Low</span></label></li>
     </ul>
 
     <div class="nav">
@@ -94,17 +95,17 @@
 </section>
 
 <!-- ====================================================== 3.2 · YOUR GROUP -->
-<section class="step" data-rail="Your group, your teams">
+<section class="step" data-rail="Your group">
   <div class="step__head">
     <span class="step__num dots" data-num="3.2"></span>
     <div>
       <p class="step__eyebrow label">Make something · Step 2 of 7</p>
-      <h1 class="step__title">Your group, <br>your teams</h1>
+      <h1 class="step__title">Your group</h1>
     </div>
   </div>
   <div class="step__body">
     <p class="step__lede">Form a group of six. If you cannot find a sixth, five is fine. One of you types everyone’s
-      name below and deals the teams. Read them out; everyone picks their own team on the next step.</p>
+      name below and deals: each of you gets a format and a prompt. Read them out; everyone picks their own on the next step.</p>
 
     <h2 class="sec">On one laptop</h2>
     <div class="names">
@@ -116,18 +117,18 @@
       <div class="field"><label for="n6" class="vh">Name 6</label><input type="text" id="n6" data-field="n6" data-label="Name 6" placeholder="Name 6 (optional)" autocomplete="off"></div>
     </div>
     <div class="deal js-only">
-      <button class="btn btn--red" type="button" data-deal>Deal the teams</button>
-      <span class="quiet" data-deal-note>Six teams: three shapes, each with two briefs. Five names leaves one team empty.</span>
+      <button class="btn btn--red" type="button" data-deal>Deal</button>
+      <span class="quiet" data-deal-note>Three formats, two prompts each: six combinations. Five names leaves one unused.</span>
     </div>
-    <ol class="dealt" data-dealt hidden></ol>
-    <p class="quiet" style="margin-top:14px">No script? Count off 1 to 6 instead, and skip anyone’s preference.</p>
+    <table class="dealt" data-dealt hidden><thead><tr><th scope="col">Name</th><th scope="col">Format</th><th scope="col">Prompt</th></tr></thead><tbody></tbody></table>
+    <p class="quiet" style="margin-top:14px">If the Deal button does nothing, count off 1 to 6 and take that number on the next step. Nobody chooses.</p>
 
     <h2 class="sec">Check</h2>
     <ul class="checks">
       <li><label class="check"><input type="checkbox" data-check="e2-group"><span class="check__box"></span>
         <span class="check__t">We have a group of five or six.</span></label></li>
       <li><label class="check"><input type="checkbox" data-check="e2-dealt"><span class="check__box"></span>
-        <span class="check__t">The teams were dealt and read out, and I know mine.</span></label></li>
+        <span class="check__t">The formats and prompts were dealt and read out, and I know mine.</span></label></li>
     </ul>
 
     <div class="nav">
@@ -140,20 +141,20 @@
 </section>
 
 <!-- ====================================================== 3.3 · YOUR TEAM -->
-<section class="step" data-rail="Your team">
+<section class="step" data-rail="Your format, your prompt">
   <div class="step__head">
     <span class="step__num dots" data-num="3.3"></span>
     <div>
       <p class="step__eyebrow label">Make something · Step 3 of 7</p>
-      <h1 class="step__title">Your team</h1>
+      <h1 class="step__title">Your format, <br>your prompt</h1>
     </div>
   </div>
   <div class="step__body">
-    <p class="step__lede">Your team is a shape and a brief. Teams 1, 3 and 5 send the floor prompt exactly as it is.
-      Teams 2, 4 and 6 tell the model about themselves first. Pick yours.</p>
+    <p class="step__lede">You were dealt a format and a prompt. Floor prompts (1, 3, 5) go exactly as they are.
+      Briefed prompts (2, 4, 6) tell the model about you first. Pick yours.</p>
 
     <div class="team">
-      <ul class="team__picks" aria-label="Choose your team">
+      <ul class="team__picks" aria-label="Choose your format and prompt">
         <li><button type="button" class="team__pick" data-team-pick="t1" aria-pressed="false">
           <span class="dots" data-num="1"></span><span class="team__pick-t">Markdown · floor</span>
           <span class="team__pick-s">a Markdown document, the floor prompt</span></button></li>
@@ -165,19 +166,19 @@
           <span class="team__pick-s">an interactive web page, the floor prompt</span></button></li>
         <li><button type="button" class="team__pick" data-team-pick="t2" aria-pressed="false">
           <span class="dots" data-num="2"></span><span class="team__pick-t">Markdown · briefed</span>
-          <span class="team__pick-s">a Markdown document, with you in the brief</span></button></li>
+          <span class="team__pick-s">a Markdown document, with you in the prompt</span></button></li>
         <li><button type="button" class="team__pick" data-team-pick="t4" aria-pressed="false">
           <span class="dots" data-num="4"></span><span class="team__pick-t">PowerPoint · briefed</span>
-          <span class="team__pick-s">a slide deck (.pptx), with you in the brief</span></button></li>
+          <span class="team__pick-s">a slide deck (.pptx), with you in the prompt</span></button></li>
         <li><button type="button" class="team__pick" data-team-pick="t6" aria-pressed="false">
           <span class="dots" data-num="6"></span><span class="team__pick-t">Web page · briefed</span>
-          <span class="team__pick-s">an interactive web page, with you in the brief</span></button></li>
+          <span class="team__pick-s">an interactive web page, with you in the prompt</span></button></li>
       </ul>
-      <p class="team__none js-only" data-team-none>Choose your team above to see your prompt.</p>
+      <p class="team__none js-only" data-team-none>Choose yours above to see your prompt.</p>
 
-      <!-- floor teams -->
+      <!-- floor prompts -->
       <div class="team__panel" data-team-panel="t1">
-        <p class="team__panel-t"><span class="label">Your prompt · send it exactly as it is</span><b>Team 1 · Markdown · floor</b></p>
+        <p class="team__panel-t"><span class="label">Your prompt · send it exactly as it is</span><b>1 · Markdown · floor</b></p>
         <div class="prompt">
           <div class="prompt__bar"><span class="prompt__name">Floor prompt · Markdown</span>
             <button class="btn-copy" type="button">Copy</button></div>
@@ -191,7 +192,7 @@ Can you produce a Markdown document to teach me about this?</p>
         <p>Do not change a word. You are the floor everyone else is measured against. Send it.</p>
       </div>
       <div class="team__panel" data-team-panel="t3">
-        <p class="team__panel-t"><span class="label">Your prompt · send it exactly as it is</span><b>Team 3 · PowerPoint · floor</b></p>
+        <p class="team__panel-t"><span class="label">Your prompt · send it exactly as it is</span><b>3 · PowerPoint · floor</b></p>
         <div class="prompt">
           <div class="prompt__bar"><span class="prompt__name">Floor prompt · PowerPoint</span>
             <button class="btn-copy" type="button">Copy</button></div>
@@ -205,7 +206,7 @@ Can you produce a slide deck (.pptx) to teach me about this?</p>
         <p>Do not change a word. You are the floor everyone else is measured against. Send it.</p>
       </div>
       <div class="team__panel" data-team-panel="t5">
-        <p class="team__panel-t"><span class="label">Your prompt · send it exactly as it is</span><b>Team 5 · Web page · floor</b></p>
+        <p class="team__panel-t"><span class="label">Your prompt · send it exactly as it is</span><b>5 · Web page · floor</b></p>
         <div class="prompt">
           <div class="prompt__bar"><span class="prompt__name">Floor prompt · Web page</span>
             <button class="btn-copy" type="button">Copy</button></div>
@@ -219,12 +220,14 @@ Can you produce an interactive web page to teach me about this?</p>
         <p>Do not change a word. You are the floor everyone else is measured against. Send it.</p>
       </div>
 
-      <!-- briefed teams -->
-      <div class="team__panel brief" data-team-panel="t2" data-shape="a Markdown document" data-look="How I want it written: ">
-        <p class="team__panel-t"><span class="label">Your prompt · fill the four fields, then copy</span><b>Team 2 · Markdown · briefed</b></p>
-        <div class="field"><label for="b2-bg">Two or three things about your background</label>
-          <span class="hint">Your role, your industry, what you already know about this.</span>
-          <textarea id="b2-bg" data-field="b2-bg" data-label="Background" rows="2"></textarea></div>
+      <!-- briefed prompts -->
+      <div class="team__panel brief" data-team-panel="t2" data-shape="a Markdown document" data-look="How I want it written">
+        <p class="team__panel-t"><span class="label">Your prompt · fill the fields, then copy</span><b>2 · Markdown · briefed</b></p>
+        <div class="field about"><span class="field__name">Two or three things about you</span>
+          <span class="hint">Your role, your industry, what you already know about this. One per line.</span>
+          <label for="b2-bg1" class="vh">About you, line 1</label><input type="text" id="b2-bg1" data-field="b2-bg1" data-label="About me, 1" placeholder="1" autocomplete="off">
+          <label for="b2-bg2" class="vh">About you, line 2</label><input type="text" id="b2-bg2" data-field="b2-bg2" data-label="About me, 2" placeholder="2" autocomplete="off">
+          <label for="b2-bg3" class="vh">About you, line 3, optional</label><input type="text" id="b2-bg3" data-field="b2-bg3" data-label="About me, 3" placeholder="3 (optional)" autocomplete="off"></div>
         <div class="field"><label for="b2-ai">Your familiarity with generative AI</label>
           <input type="text" id="b2-ai" data-field="b2-ai" data-label="Familiarity with generative AI" autocomplete="off"></div>
         <div class="field"><label for="b2-tech">How technical you are</label>
@@ -233,17 +236,19 @@ Can you produce an interactive web page to teach me about this?</p>
           <span class="hint">Length, tone, structure: skimmable, worked examples, a glossary, no jargon.</span>
           <input type="text" id="b2-look" data-field="b2-look" data-label="How I want it written" autocomplete="off"></div>
         <div class="prompt">
-          <div class="prompt__bar"><span class="prompt__name">Your brief · Markdown</span>
+          <div class="prompt__bar"><span class="prompt__name">Your prompt · Markdown</span>
             <button class="btn-copy" type="button">Copy</button></div>
           <p class="prompt__body" data-brief-body></p>
         </div>
         <p>Send it. It will ask you its questions first; answer them, then it makes the document.</p>
       </div>
-      <div class="team__panel brief" data-team-panel="t4" data-shape="a slide deck (.pptx)" data-look="The look and feel I want: ">
-        <p class="team__panel-t"><span class="label">Your prompt · fill the four fields, then copy</span><b>Team 4 · PowerPoint · briefed</b></p>
-        <div class="field"><label for="b4-bg">Two or three things about your background</label>
-          <span class="hint">Your role, your industry, what you already know about this.</span>
-          <textarea id="b4-bg" data-field="b4-bg" data-label="Background" rows="2"></textarea></div>
+      <div class="team__panel brief" data-team-panel="t4" data-shape="a slide deck (.pptx)" data-look="The look and feel I want">
+        <p class="team__panel-t"><span class="label">Your prompt · fill the fields, then copy</span><b>4 · PowerPoint · briefed</b></p>
+        <div class="field about"><span class="field__name">Two or three things about you</span>
+          <span class="hint">Your role, your industry, what you already know about this. One per line.</span>
+          <label for="b4-bg1" class="vh">About you, line 1</label><input type="text" id="b4-bg1" data-field="b4-bg1" data-label="About me, 1" placeholder="1" autocomplete="off">
+          <label for="b4-bg2" class="vh">About you, line 2</label><input type="text" id="b4-bg2" data-field="b4-bg2" data-label="About me, 2" placeholder="2" autocomplete="off">
+          <label for="b4-bg3" class="vh">About you, line 3, optional</label><input type="text" id="b4-bg3" data-field="b4-bg3" data-label="About me, 3" placeholder="3 (optional)" autocomplete="off"></div>
         <div class="field"><label for="b4-ai">Your familiarity with generative AI</label>
           <input type="text" id="b4-ai" data-field="b4-ai" data-label="Familiarity with generative AI" autocomplete="off"></div>
         <div class="field"><label for="b4-tech">How technical you are</label>
@@ -251,17 +256,19 @@ Can you produce an interactive web page to teach me about this?</p>
         <div class="field"><label for="b4-look">The look and feel you want</label>
           <input type="text" id="b4-look" data-field="b4-look" data-label="Look and feel" autocomplete="off"></div>
         <div class="prompt">
-          <div class="prompt__bar"><span class="prompt__name">Your brief · PowerPoint</span>
+          <div class="prompt__bar"><span class="prompt__name">Your prompt · PowerPoint</span>
             <button class="btn-copy" type="button">Copy</button></div>
           <p class="prompt__body" data-brief-body></p>
         </div>
         <p>Send it. It will ask you its questions first; answer them, then it makes the deck.</p>
       </div>
-      <div class="team__panel brief" data-team-panel="t6" data-shape="an interactive web page" data-look="The look and feel I want: ">
-        <p class="team__panel-t"><span class="label">Your prompt · fill the four fields, then copy</span><b>Team 6 · Web page · briefed</b></p>
-        <div class="field"><label for="b6-bg">Two or three things about your background</label>
-          <span class="hint">Your role, your industry, what you already know about this.</span>
-          <textarea id="b6-bg" data-field="b6-bg" data-label="Background" rows="2"></textarea></div>
+      <div class="team__panel brief" data-team-panel="t6" data-shape="an interactive web page" data-look="The look and feel I want">
+        <p class="team__panel-t"><span class="label">Your prompt · fill the fields, then copy</span><b>6 · Web page · briefed</b></p>
+        <div class="field about"><span class="field__name">Two or three things about you</span>
+          <span class="hint">Your role, your industry, what you already know about this. One per line.</span>
+          <label for="b6-bg1" class="vh">About you, line 1</label><input type="text" id="b6-bg1" data-field="b6-bg1" data-label="About me, 1" placeholder="1" autocomplete="off">
+          <label for="b6-bg2" class="vh">About you, line 2</label><input type="text" id="b6-bg2" data-field="b6-bg2" data-label="About me, 2" placeholder="2" autocomplete="off">
+          <label for="b6-bg3" class="vh">About you, line 3, optional</label><input type="text" id="b6-bg3" data-field="b6-bg3" data-label="About me, 3" placeholder="3 (optional)" autocomplete="off"></div>
         <div class="field"><label for="b6-ai">Your familiarity with generative AI</label>
           <input type="text" id="b6-ai" data-field="b6-ai" data-label="Familiarity with generative AI" autocomplete="off"></div>
         <div class="field"><label for="b6-tech">How technical you are</label>
@@ -269,7 +276,7 @@ Can you produce an interactive web page to teach me about this?</p>
         <div class="field"><label for="b6-look">The look and feel you want</label>
           <input type="text" id="b6-look" data-field="b6-look" data-label="Look and feel" autocomplete="off"></div>
         <div class="prompt">
-          <div class="prompt__bar"><span class="prompt__name">Your brief · Web page</span>
+          <div class="prompt__bar"><span class="prompt__name">Your prompt · Web page</span>
             <button class="btn-copy" type="button">Copy</button></div>
           <p class="prompt__body" data-brief-body></p>
         </div>
@@ -280,7 +287,7 @@ Can you produce an interactive web page to teach me about this?</p>
     <h2 class="sec">Check</h2>
     <ul class="checks">
       <li><label class="check"><input type="checkbox" data-check="e3-team"><span class="check__box"></span>
-        <span class="check__t">I chose my team</span></label></li>
+        <span class="check__t">I chose mine</span></label></li>
       <li><label class="check"><input type="checkbox" data-check="e3-sent"><span class="check__box"></span>
         <span class="check__t">I sent my prompt</span></label></li>
     </ul>
@@ -304,16 +311,16 @@ Can you produce an interactive web page to teach me about this?</p>
     </div>
   </div>
   <div class="step__body">
-    <p class="step__lede">Briefed teams: answer its questions, then let it work. Floor teams: tell your group what you would have told it, if you had been allowed to.</p>
+    <p class="step__lede">Briefed: answer its questions, then let it work. Everyone: while it generates, compare your prompts within your group.</p>
     <div class="modes">
       <div class="mode"><span class="mode__n">Briefed</span><span class="mode__d">Answer every question it asked. Short answers are fine. Which question surprised you?</span></div>
-      <div class="mode"><span class="mode__n">Floor</span><span class="mode__d">Say out loud what the model does not know about you. Keep the list; it comes back in the debrief.</span></div>
+      <div class="mode"><span class="mode__n">Everyone</span><span class="mode__d">Compare and contrast your prompts with the rest of your group. Same topic, same ask: what differs?</span></div>
     </div>
 
     <h2 class="sec">Check</h2>
     <ul class="checks">
       <li><label class="check"><input type="checkbox" data-check="e4-done"><span class="check__box"></span>
-        <span class="check__t">I answered its questions, or we compared what it could not know</span></label></li>
+        <span class="check__t">We compared our prompts</span></label></li>
     </ul>
 
     <div class="nav">
@@ -335,25 +342,8 @@ Can you produce an interactive web page to teach me about this?</p>
     </div>
   </div>
   <div class="step__body">
-    <p class="step__lede">When it arrives, read it on your own. Score it against the checklist below.</p>
+    <p class="step__lede">When it arrives, read it on your own.</p>
     <div class="note note--warn"><b>Do not show it yet.</b> Austin will say when.</div>
-
-    <div class="panel" data-score-panel>
-      <p class="panel__eyebrow label">Score it · <span data-score-count><b>0</b> of 5</span></p>
-      <ul class="checks checks--score">
-        <li><label class="check"><input type="checkbox" data-score="s1"><span class="check__box"></span>
-          <span class="check__t">It says what a token is</span></label></li>
-        <li><label class="check"><input type="checkbox" data-score="s2"><span class="check__box"></span>
-          <span class="check__t">It names the context window of a current model, with a source</span></label></li>
-        <li><label class="check"><input type="checkbox" data-score="s3"><span class="check__box"></span>
-          <span class="check__t">It says what happens when a conversation exceeds the window</span></label></li>
-        <li><label class="check"><input type="checkbox" data-score="s4"><span class="check__box"></span>
-          <span class="check__t">It says why quality can drop before the limit</span></label></li>
-        <li><label class="check"><input type="checkbox" data-score="s5"><span class="check__box"></span>
-          <span class="check__t">It gives at least one practical strategy</span></label></li>
-      </ul>
-      <p class="panel__note">A script could score this by keyword. Cheap, consistent, and gameable.</p>
-    </div>
 
     <h2 class="sec">Check</h2>
     <ul class="checks">
@@ -383,10 +373,10 @@ Can you produce an interactive web page to teach me about this?</p>
     <p class="step__lede">When Austin says: ninety seconds each. Show it.</p>
     <div class="modes">
       <div class="mode"><span class="mode__n">Learned</span><span class="mode__d">Say what you learned.</span></div>
-      <div class="mode"><span class="mode__n">Format</span><span class="mode__d">Say what you liked and disliked about this shape.</span></div>
-      <div class="mode"><span class="mode__n">Brief</span><span class="mode__d">Briefed teams: which of your answers can you see in the artifact?</span></div>
+      <div class="mode"><span class="mode__n">Format</span><span class="mode__d">Say what you liked and disliked about this format.</span></div>
+      <div class="mode"><span class="mode__n">Brief</span><span class="mode__d">Briefed: which of your answers can you see in the artifact?</span></div>
     </div>
-    <p style="margin-top:20px">Then the two of you with the same shape compare your two: one floor, one briefed. Same shape, same model. What changed?</p>
+    <p style="margin-top:20px">Then the two of you with the same format compare your two: one floor, one briefed. Same format, same model. What changed?</p>
 
     <h2 class="sec">Check</h2>
     <ul class="checks">
@@ -403,40 +393,24 @@ Can you produce an interactive web page to teach me about this?</p>
   </div>
 </section>
 
-<!-- ====================================================== 3.7 · SCORE IT -->
-<section class="step" data-rail="Score it">
+<!-- ====================================================== 3.7 · WRITE IT DOWN -->
+<section class="step" data-rail="Write it down">
   <div class="step__head">
     <span class="step__num dots" data-num="3.7"></span>
     <div>
       <p class="step__eyebrow label">Make something · Step 7 of 7</p>
-      <h1 class="step__title">Score it</h1>
+      <h1 class="step__title">Write it down</h1>
     </div>
   </div>
   <div class="step__body">
-    <p class="step__lede">Your ticks from step 5 are here. Check them once more; your ticks are the score.</p>
+    <p class="step__lede">If there is time before the debrief starts, three lines. They stay in this browser; copy them at the end if you want to keep them.</p>
 
-    <div class="panel" data-score-panel>
-      <p class="panel__eyebrow label">Score it · <span data-score-count><b>0</b> of 5</span></p>
-      <ul class="checks checks--score">
-        <li><label class="check"><input type="checkbox" data-score="s1"><span class="check__box"></span>
-          <span class="check__t">It says what a token is</span></label></li>
-        <li><label class="check"><input type="checkbox" data-score="s2"><span class="check__box"></span>
-          <span class="check__t">It names the context window of a current model, with a source</span></label></li>
-        <li><label class="check"><input type="checkbox" data-score="s3"><span class="check__box"></span>
-          <span class="check__t">It says what happens when a conversation exceeds the window</span></label></li>
-        <li><label class="check"><input type="checkbox" data-score="s4"><span class="check__box"></span>
-          <span class="check__t">It says why quality can drop before the limit</span></label></li>
-        <li><label class="check"><input type="checkbox" data-score="s5"><span class="check__box"></span>
-          <span class="check__t">It gives at least one practical strategy</span></label></li>
-      </ul>
-      <p class="panel__note">A script could score this by keyword. Cheap, consistent, and gameable.</p>
-    </div>
-
-    <h2 class="sec">Check</h2>
-    <ul class="checks">
-      <li><label class="check"><input type="checkbox" data-check="e7-scored"><span class="check__box"></span>
-        <span class="check__t">I scored mine</span></label></li>
-    </ul>
+    <div class="field"><label for="r-liked">What you liked about this format <span class="req req--opt">optional</span></label>
+      <textarea id="r-liked" data-field="r-liked" data-label="What I liked about this format" rows="2"></textarea></div>
+    <div class="field"><label for="r-disliked">What you did not like about it <span class="req req--opt">optional</span></label>
+      <textarea id="r-disliked" data-field="r-disliked" data-label="What I did not like about this format" rows="2"></textarea></div>
+    <div class="field"><label for="r-remember">One thing about context windows you will remember <span class="req req--opt">optional</span></label>
+      <textarea id="r-remember" data-field="r-remember" data-label="One thing about context windows I will remember" rows="2"></textarea></div>
 
     <div class="nav">
       <button class="btn btn--ghost" data-back>Back</button>
@@ -451,7 +425,7 @@ Can you produce an interactive web page to teach me about this?</p>
 <section class="done">
   <span class="done__num dots" data-num="03"></span>
   <h1 class="done__t">You made something.</h1>
-  <p class="done__p">Same topic, same model, different choices. The shape you were given decided what was easy to see,
+  <p class="done__p">Same topic, same model, different choices. The format you were given decided what was easy to see,
     and what you told it about yourself decided what it could know. It cannot know the rest unless you say so.</p>
   <p class="done__p">Keep your artifact open. Austin will come back to it.</p>
   <div class="nav">
@@ -480,13 +454,13 @@ Can you produce an interactive web page to teach me about this?</p>
 <script src="../assets/guide.js"></script>
 <script>if(!window.__GUIDE_OK)document.documentElement.className=document.documentElement.className.replace(/(^|\s)js(\s|$)/g," ")</script>
 <script>
-/* This page only: dealing the six teams on one laptop, and assembling the brief from its fields. */
+/* This page only: dealing formats and prompts on one laptop, and assembling the briefed prompt from its fields. */
 (function () {
   "use strict";
-  var TEAMS = [
-    ["t1", "Team 1", "Markdown · floor"], ["t2", "Team 2", "Markdown · briefed"],
-    ["t3", "Team 3", "PowerPoint · floor"], ["t4", "Team 4", "PowerPoint · briefed"],
-    ["t5", "Team 5", "Web page · floor"], ["t6", "Team 6", "Web page · briefed"]
+  var COMBOS = [
+    ["t1", "Markdown", "Floor"], ["t2", "Markdown", "Briefed"],
+    ["t3", "PowerPoint", "Floor"], ["t4", "PowerPoint", "Briefed"],
+    ["t5", "Web page", "Floor"], ["t6", "Web page", "Briefed"]
   ];
   var KEY = "emba26.make-something.deal";
   var list = document.querySelector("[data-dealt]");
@@ -502,48 +476,55 @@ Can you produce an interactive web page to teach me about this?</p>
   }
   function render(deal) {
     if (!list) return;
-    list.innerHTML = "";
+    var body = list.querySelector("tbody");
+    body.innerHTML = "";
     deal.forEach(function (d) {
-      var li = document.createElement("li");
-      var n = document.createElement("span"); n.textContent = d.name;
-      var t = document.createElement("span"); t.className = "t";
-      t.textContent = d.team[1];
-      var s = document.createElement("small"); s.textContent = d.team[2];
-      t.appendChild(s);
-      li.appendChild(n); li.appendChild(t);
-      list.appendChild(li);
+      var tr = document.createElement("tr");
+      var n = document.createElement("td"); n.textContent = d.name;
+      var f = document.createElement("td"); f.className = "f"; f.textContent = d.combo[1];
+      var p = document.createElement("td"); p.className = "p"; p.textContent = d.combo[2];
+      tr.appendChild(n); tr.appendChild(f); tr.appendChild(p);
+      body.appendChild(tr);
     });
     list.hidden = !deal.length;
   }
   function deal() {
     var ns = names();
     if (ns.length < 2) { alert("Type at least two names first."); return; }
-    var order = shuffle(TEAMS.slice());
-    var out = ns.map(function (name, i) { return { name: name, team: i < 6 ? order[i] : order[Math.floor(Math.random() * 6)] }; });
-    try { localStorage.setItem(KEY, JSON.stringify(out.map(function (d) { return { name: d.name, team: d.team[0] }; }))); } catch (e) {}
+    var order = shuffle(COMBOS.slice());
+    var out = ns.map(function (name, i) { return { name: name, combo: i < 6 ? order[i] : order[Math.floor(Math.random() * 6)] }; });
+    try { localStorage.setItem(KEY, JSON.stringify(out.map(function (d) { return { name: d.name, combo: d.combo[0] }; }))); } catch (e) {}
     render(out);
   }
   if (btn) btn.addEventListener("click", deal);
   try {
     var saved = JSON.parse(localStorage.getItem(KEY));
-    if (Array.isArray(saved)) render(saved.map(function (d) { return { name: d.name, team: TEAMS.filter(function (t) { return t[0] === d.team; })[0] || TEAMS[0] }; }));
+    if (Array.isArray(saved)) render(saved.map(function (d) { var id = d.combo || d.team; return { name: d.name, combo: COMBOS.filter(function (t) { return t[0] === id; })[0] || COMBOS[0] }; }));
   } catch (e) {}
-  document.querySelectorAll(".btn-reset").forEach(function (b) { b.addEventListener("click", function () { try { localStorage.removeItem(KEY); } catch (e) {} if (list) { list.innerHTML = ""; list.hidden = true; } }); });
+  document.querySelectorAll(".btn-reset").forEach(function (b) { b.addEventListener("click", function () { try { localStorage.removeItem(KEY); } catch (e) {} if (list) { list.querySelector("tbody").innerHTML = ""; list.hidden = true; } }); });
 
-  /* the brief: four fields into one prompt, rebuilt as you type */
+  /* the briefed prompt: the fields into one prompt, as Markdown (bold headings, a bulleted list), rebuilt as you type */
   var TOPIC = "How context windows work: why long AI conversations can go wrong, and what to do about it.";
-  function text(panel, suffix) { var el = panel.querySelector('[data-field$="' + suffix + '"]'); var v = el && el.value.trim(); return v || "[" + el.getAttribute("data-label").toLowerCase() + "]"; }
+  function val(panel, suffix) { var el = panel.querySelector('[data-field$="' + suffix + '"]'); return el ? el.value.trim() : ""; }
+  function text(panel, suffix) { var el = panel.querySelector('[data-field$="' + suffix + '"]'); return val(panel, suffix) || "[" + el.getAttribute("data-label").toLowerCase() + "]"; }
+  function aboutLines(panel) {
+    var lines = [];
+    ["-bg1", "-bg2", "-bg3"].forEach(function (sfx) { var v = val(panel, sfx); if (v) lines.push(v); });
+    if (!lines.length) lines = ["[one thing about you]", "[another]"];
+    return lines.map(function (l) { return "- " + l; }).join("\n");
+  }
   function assemble(panel) {
     var body = panel.querySelector("[data-brief-body]");
     if (!body) return;
     body.textContent =
       "I want to learn about the following topic:\n\n" + TOPIC + "\n\n" +
       "Can you produce " + panel.getAttribute("data-shape") + " to teach me about this?\n\n" +
-      "About me: " + text(panel, "-bg") + "\n" +
-      "My familiarity with generative AI: " + text(panel, "-ai") + "\n" +
-      "How technical I am: " + text(panel, "-tech") + "\n" +
-      panel.getAttribute("data-look") + text(panel, "-look") + "\n\n" +
-      "Before you produce it, ask me 3 to 5 questions whose answers would meaningfully change what you make. Wait for my answers.";
+      "**About me**\n" + aboutLines(panel) + "\n\n" +
+      "**My familiarity with generative AI:** " + text(panel, "-ai") + "\n\n" +
+      "**How technical I am:** " + text(panel, "-tech") + "\n\n" +
+      "**" + panel.getAttribute("data-look") + ":** " + text(panel, "-look") + "\n\n" +
+      "Before you produce it, ask me 3 to 5 questions whose answers would meaningfully change what you make. " +
+      "Use your interactive question form if you have one; otherwise ask them one at a time. Wait for my answers.";
   }
   function initBriefs() {
     document.querySelectorAll(".brief").forEach(function (panel) {

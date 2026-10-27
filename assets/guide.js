@@ -528,6 +528,8 @@
       });
       var seen = {};
       [].slice.call(s.querySelectorAll("[data-field]")).forEach(function (el) {
+        var panel = el.closest("[data-team-panel]");
+        if (panel && panel.getAttribute("data-team-panel") !== state.team) return;   /* only the chosen pick's fields */
         var id = el.getAttribute("data-field");
         var name = el.getAttribute("data-label") || id;
         if (el.type === "radio") {
@@ -546,7 +548,7 @@
       if (state.team && s.querySelector("[data-team-pick]")) {
         var pick = s.querySelector('[data-team-pick="' + state.team + '"] .team__pick-t');
         out.push("");
-        out.push("Team: " + (pick ? pick.textContent.trim() : state.team));
+        out.push("Format and prompt: " + (pick ? pick.textContent.trim() : state.team));
       }
       out.push("");
     });
